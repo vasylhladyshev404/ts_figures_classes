@@ -29,7 +29,7 @@ export class Triangle implements Figure {
 
   getArea(): number {
     let s: number = (this.a + this.b + this.c) / 2
-    return Math.sqrt(s * (s - this.a) * (s - this.b) * (s - this.c))
+    return Math.round(Math.sqrt(s * (s - this.a) * (s - this.b) * (s - this.c)) * 100) / 100
   }
 }
 
@@ -45,7 +45,7 @@ export class Circle implements Figure {
   }
 
   getArea(): number {
-    return Math.PI * this.radius ** 2
+    return Math.round(Math.PI * this.radius ** 2 * 100) / 100
   }
 }
 
@@ -62,7 +62,7 @@ export class Rectangle implements Figure {
   }
 
   getArea(): number {
-    return this.width * this.height
+    return Math.round(this.width * this.height * 100) / 100
   }
 }
 
