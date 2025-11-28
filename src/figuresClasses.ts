@@ -10,11 +10,11 @@ export interface Figure {
 
 export class Triangle implements Figure {
   constructor(
-    public shape: Shape = "triangle",
     public color: Color,
     public a: number,
     public b: number,
     public c: number,
+    public shape: Shape = "triangle",
   ) {
     const sides = [a, b, c].sort((x, y) => x - y);
     
@@ -28,16 +28,17 @@ export class Triangle implements Figure {
   }
 
   getArea(): number {
-    let s: number = (this.a + this.b + this.c) / 2
+    const s: number = (this.a + this.b + this.c) / 2
+
     return Math.round(Math.sqrt(s * (s - this.a) * (s - this.b) * (s - this.c)) * 100) / 100
   }
 }
 
 export class Circle implements Figure {
   constructor(
-    public shape: Shape = "circle",
     public color: Color,
     public radius: number,
+    public shape: Shape = "circle",
   ) {
     if (radius <= 0) {
       throw new Error("Radius must be greater then zero.")
@@ -51,10 +52,10 @@ export class Circle implements Figure {
 
 export class Rectangle implements Figure {
   constructor(
-    public shape: Shape = "rectangle",
     public color: Color,
     public width: number,
     public height: number,
+    public shape: Shape = "rectangle",
   ) {
     if (width <= 0 || height <= 0) {
       throw new Error("Sides must be greater then zero.")
